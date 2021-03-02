@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:teste_flutter_crmall/pages/comics/comics_controller.dart';
-import 'package:teste_flutter_crmall/pages/comics/comics_page.dart';
-import 'package:teste_flutter_crmall/pages/home/home_page.dart';
-import 'package:teste_flutter_crmall/pages/profile/profile_page.dart';
+import 'package:teste_flutter_crmall/modules/checkout/checkout_page.dart';
+import 'package:teste_flutter_crmall/modules/comics/comics_controller.dart';
+import 'package:teste_flutter_crmall/modules/comics/comics_page.dart';
+import 'package:teste_flutter_crmall/modules/home/home_page.dart';
+import 'package:teste_flutter_crmall/modules/login/login_page.dart';
+import 'package:teste_flutter_crmall/modules/profile/profile_page.dart';
+import 'package:teste_flutter_crmall/repositories/comic_repository.dart';
 
 import 'menu_controller.dart';
 
@@ -12,8 +14,9 @@ class MenuPage extends StatelessWidget {
   /*Todos os controllers sao instanciados por aqui, para serem roteados, e dentro das paginas 
   apenas preciso usar o Get.find() para recuperar as informacoes*/
 
-  MenuController menuController = Get.put(MenuController());
-  ComicsController comicsController = Get.find();
+  final MenuController menuController = Get.put(MenuController());
+  final ComicsController comicsController =
+      Get.put(ComicsController(repository: ComicRepository()));
 
   final List<Widget> pages = [
     HomePage(),
@@ -28,14 +31,24 @@ class MenuPage extends StatelessWidget {
           title: Text('teste'),
           actions: [
             IconButton(
-              icon: ImageIcon(AssetImage('assets/icons/shop-cart.png')),
-              onPressed: () {},
+              icon: ImageIcon(AssetImage('assets/icons/exit.png')),
+              onPressed: () {
+                Get.offAll(LoginPage());
+              },
             )
           ],
         ),
         body: Obx(
           () => pages.elementAt(menuController.selectedIndex.value),
         ),
+        floatingActionButton: FloatingActionButton(
+          child: ImageIcon(AssetImage('assets/icons/shop-cart.png')),
+          backgroundColor: Color(0xffed1d24),
+          onPressed: () {
+            Get.to(() => CheckoutPage());
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
               currentIndex: menuController.selectedIndex.value,

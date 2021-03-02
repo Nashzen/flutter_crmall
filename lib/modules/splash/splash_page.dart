@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste_flutter_crmall/pages/menu/menu_page.dart';
+import 'package:teste_flutter_crmall/modules/login/login_page.dart';
 
 class SplashPage extends StatelessWidget {
   SplashPage() {
@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
   }
 
   changeScreen() async {
-    Get.off(MenuPage());
+    Get.off(() => LoginPage());
   }
 
   @override

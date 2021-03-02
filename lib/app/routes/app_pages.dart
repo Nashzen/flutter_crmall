@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:teste_flutter_crmall/pages/comics/comics_page.dart';
-import 'package:teste_flutter_crmall/pages/login/login_page.dart';
-import 'package:teste_flutter_crmall/pages/menu/menu_binding.dart';
-import 'package:teste_flutter_crmall/pages/menu/menu_page.dart';
-import 'package:teste_flutter_crmall/pages/splash/splash_page.dart';
+import 'package:teste_flutter_crmall/modules/comics/comics_page.dart';
+import 'package:teste_flutter_crmall/modules/login/login_page.dart';
+import 'package:teste_flutter_crmall/modules/menu/menu_bind.dart';
+import 'package:teste_flutter_crmall/modules/menu/menu_page.dart';
+import 'package:teste_flutter_crmall/modules/splash/splash_page.dart';
 import 'app_routes.dart';
 
 class AppPages {
