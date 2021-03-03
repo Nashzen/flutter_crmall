@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:teste_flutter_crmall/app/constants/const_colors.dart';
 import 'package:teste_flutter_crmall/modules/checkout/checkout_page.dart';
 import 'package:teste_flutter_crmall/modules/comics/comics_controller.dart';
 import 'package:teste_flutter_crmall/modules/comics/comics_page.dart';
-import 'package:teste_flutter_crmall/modules/home/home_page.dart';
 import 'package:teste_flutter_crmall/modules/login/login_page.dart';
 import 'package:teste_flutter_crmall/modules/profile/profile_page.dart';
 import 'package:teste_flutter_crmall/repositories/comic_repository.dart';
@@ -19,7 +19,6 @@ class MenuPage extends StatelessWidget {
       Get.put(ComicsController(repository: ComicRepository()));
 
   final List<Widget> pages = [
-    HomePage(),
     ComicsPage(),
     ProfilePage(),
   ];
@@ -28,7 +27,6 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('teste'),
           actions: [
             IconButton(
               icon: ImageIcon(AssetImage('assets/icons/exit.png')),
@@ -42,8 +40,11 @@ class MenuPage extends StatelessWidget {
           () => pages.elementAt(menuController.selectedIndex.value),
         ),
         floatingActionButton: FloatingActionButton(
-          child: ImageIcon(AssetImage('assets/icons/shop-cart.png')),
-          backgroundColor: Color(0xffed1d24),
+          heroTag: 'menubtn',
+          child: comicsController.comicsOnCartList.length > 0
+              ? ImageIcon(AssetImage('assets/icons/shop-cart-filled.png'))
+              : ImageIcon(AssetImage('assets/icons/shop-cart.png')),
+          backgroundColor: marvelRed,
           onPressed: () {
             Get.to(() => CheckoutPage());
           },
@@ -56,16 +57,12 @@ class MenuPage extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/icons/avengers.png')),
-                  label: 'Inicio',
-                ),
-                BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/icons/comics.png')),
-                  label: 'Gibis',
+                  label: 'Comics',
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/icons/iron-man.png')),
-                  label: 'Perfil',
+                  label: 'Options',
                 ),
               ]),
         ));

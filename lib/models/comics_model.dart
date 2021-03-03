@@ -1,4 +1,4 @@
-class NewComicsModel {
+class ComicsModel {
   int code;
   String status;
   String copyright;
@@ -7,7 +7,7 @@ class NewComicsModel {
   Data data;
   String etag;
 
-  NewComicsModel(
+  ComicsModel(
       {this.code,
       this.status,
       this.copyright,
@@ -16,7 +16,7 @@ class NewComicsModel {
       this.data,
       this.etag});
 
-  NewComicsModel.fromJson(Map<String, dynamic> json) {
+  ComicsModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     copyright = json['copyright'];
