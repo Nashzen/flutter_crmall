@@ -11,7 +11,10 @@ class ComicsController extends GetxController {
   final comics = ComicsModel().obs;
   final isLoading = true.obs; //para demonstrar o carregamento da requisicao
   final newOffset = 20.obs;
-  final comicsOnCartList = <CartComicModel>[].obs;
+  final comicsOnCartList =
+      <CartComicModel>[].obs; // Lista de quadrinhos no carrinho
+  final myPurchases = <CartComicModel>[]
+      .obs; // lista para adicionar as compras para listar depois
 
   @override
   void onInit() {
@@ -39,7 +42,8 @@ class ComicsController extends GetxController {
   }
 
   //Adicionar uma HQ ao carrinho de compras
-  Future addComicToCart() async {
-    print(comicsOnCartList.obs.value);
+  Future buyComics(CartComicModel comics) async {
+    myPurchases.obs.value.add(comics);
+    return myPurchases.obs.value;
   }
 }

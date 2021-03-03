@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:teste_flutter_crmall/app/constants/const_colors.dart';
 
-class ComicCheckoutTile extends StatelessWidget {
+class BoughtComicTile extends StatelessWidget {
   final String imageUrl;
   final String title;
   final double price;
   final Function onTap;
 
-  ComicCheckoutTile({this.imageUrl, this.title, this.price, this.onTap});
+  BoughtComicTile({this.imageUrl, this.title, this.price, this.onTap});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,9 +30,9 @@ class ComicCheckoutTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           trailing: IconButton(
-            onPressed: onTap,
-            icon: Icon(Icons.delete),
-            color: Colors.red[900],
+            onPressed: () {},
+            icon: Icon(Icons.check_circle),
+            color: Colors.green[900],
           ),
         ),
         Divider(

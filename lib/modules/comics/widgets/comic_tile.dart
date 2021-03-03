@@ -18,7 +18,10 @@ class ComicTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        elevation: 5,
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Column(
@@ -31,11 +34,11 @@ class ComicTile extends StatelessWidget {
                     width: double.infinity,
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Image.network(
                       imageUrl,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -49,9 +52,6 @@ class ComicTile extends StatelessWidget {
                     fontFamily: 'avenir', fontWeight: FontWeight.w800),
                 overflow: TextOverflow.ellipsis,
               ),
-              // SizedBox(height: 8),
-              // Text('\$$price}',
-              //     style: TextStyle(fontSize: 32, fontFamily: 'avenir')),
             ],
           ),
         ),

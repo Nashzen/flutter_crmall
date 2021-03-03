@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste_flutter_crmall/modules/login/login_page.dart';
+import 'package:teste_flutter_crmall/modules/profile/purchases_page.dart';
 import 'package:teste_flutter_crmall/modules/profile/widgets/list_tile_options.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -25,7 +26,7 @@ class ProfilePage extends StatelessWidget {
                   icon: CupertinoIcons.shopping_cart,
                   text: 'Purchases historic',
                   onTap: () {
-                    // Get.to(page);
+                    Get.to(() => PurchasesPage());
                   },
                 ),
                 ListTileOption(

@@ -39,16 +39,16 @@ class MenuPage extends StatelessWidget {
         body: Obx(
           () => pages.elementAt(menuController.selectedIndex.value),
         ),
-        floatingActionButton: FloatingActionButton(
-          heroTag: 'menubtn',
-          child: comicsController.comicsOnCartList.length > 0
-              ? ImageIcon(AssetImage('assets/icons/shop-cart-filled.png'))
-              : ImageIcon(AssetImage('assets/icons/shop-cart.png')),
-          backgroundColor: marvelRed,
-          onPressed: () {
-            Get.to(() => CheckoutPage());
-          },
-        ),
+        floatingActionButton: Obx(() => FloatingActionButton(
+              heroTag: 'menubtn',
+              child: comicsController.comicsOnCartList.length > 0
+                  ? ImageIcon(AssetImage('assets/icons/shop-cart-filled.png'))
+                  : ImageIcon(AssetImage('assets/icons/shop-cart.png')),
+              backgroundColor: marvelRed,
+              onPressed: () {
+                Get.to(() => CheckoutPage());
+              },
+            )),
         floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
