@@ -26,7 +26,7 @@ O carrinho de compras, com a lista de todos os pedidos adicionados
 ![](/screenshots/carrinho_compras.png)
 
 E o checkout, pedindo as informações do seu cartão de crédito para conclusão da compra (não há nenhuma validação)
-![](/screenshots/acheckout.png)
+![](/screenshots/checkout.png)
 
 
 
