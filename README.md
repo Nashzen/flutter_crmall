@@ -14,19 +14,19 @@ OBS²: Como a API está toda documentada em inglês, preferi desenvolver todas a
 A aplicação consiste em uma listagem das HQs disponíveis na API da Marvel, a aplicação consiste em:
 
 Uma tela de login (não possui autenticação, qualquer usuário consegue acessar)
-![](/screnshots/login.png)
+![](/screenshots/login.png)
 
 A tela principal do aplicativo, mostrando todas as HQs disponíveis
-![](/screnshots/lista_quadrinhos.png)
+![](/screenshots/lista_quadrinhos.png)
 
 Os detalhes do quadrinho selecionado, com o botão para adicioná-lo ao seu carrinho de compras
-![](/screnshots/detalhes_quadrinho.png)
+![](/screenshots/detalhes_quadrinho.png)
 
 O carrinho de compras, com a lista de todos os pedidos adicionados
-![](/screnshots/carrinho_compras.png)
+![](/screenshots/carrinho_compras.png)
 
 E o checkout, pedindo as informações do seu cartão de crédito para conclusão da compra (não há nenhuma validação)
-![](/screnshots/acheckout.png)
+![](/screenshots/acheckout.png)
 
 
 
