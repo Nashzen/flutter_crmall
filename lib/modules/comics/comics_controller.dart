@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 import 'package:teste_flutter_crmall/models/cart_comic_model.dart';
@@ -9,8 +10,9 @@ class ComicsController extends GetxController {
   ComicsController({@required this.repository}) : assert(repository != null);
 
   final comics = ComicsModel().obs;
+  final comicList = <ComicsModel>[].obs;
   final isLoading = true.obs; //para demonstrar o carregamento da requisicao
-  final newOffset = 20.obs;
+  final pageOffset = 600.obs;
   final comicsOnCartList =
       <CartComicModel>[].obs; // Lista de quadrinhos no carrinho
   final myPurchases = <CartComicModel>[]
@@ -19,26 +21,36 @@ class ComicsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getComics();
+    getComics(pageOffset.value.toString());
   }
 
   //Requisicao inicial para obter as HQs
-  Future getComics() async {
+  Future getComics(String offset) async {
     try {
       isLoading(true);
-      var comicResponse = await repository.getComics();
+      var comicResponse = await repository.getComics(offset: offset);
       if (comicResponse != null) {
         comics.value = comicResponse;
+        comicList.add(comicResponse);
       }
     } finally {
       isLoading(false);
     }
   }
 
-  //Carregar mais HQs
   Future getMoreComics() async {
-    comics.value.data.offset += 20;
-    await getComics();
+    try {
+      isLoading(true);
+      var comicResponse =
+          await repository.getComics(offset: '${pageOffset.value + 20}');
+      if (comicResponse != null) {
+        pageOffset.value += 20;
+        comics.value = comicResponse;
+        comicList.add(comicResponse);
+      }
+    } finally {
+      isLoading(false);
+    }
   }
 
   //Adicionar uma HQ ao carrinho de compras

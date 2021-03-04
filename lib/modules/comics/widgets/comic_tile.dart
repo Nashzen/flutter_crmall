@@ -30,7 +30,7 @@ class ComicTile extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    height: 150,
+                    height: 170,
                     width: double.infinity,
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(

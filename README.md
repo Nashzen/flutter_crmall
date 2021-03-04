@@ -4,7 +4,7 @@ Teste feito utilizando a [API de desenvolvedores da Marvel](https://developer.ma
 
 ## Considerações
 
-Utilizei o [Pacote GetX](https://pub.dev/packages/get) como gerenciador de estado e rotas da aplicação, e para fazer as requisições HTTP, utilizei o [Pacote Http.dart](https://pub.dev/packages/http). 
+Utilizei o [Pacote GetX](https://pub.dev/packages/get) como gerenciador de estado e rotas da aplicação, e para fazer as requisições HTTP, utilizei o [Pacote Dio](https://pub.dev/packages/dio). 
 
 OBS: A versão utilizada para desenvolver o projeto foi a BETA 1.26.0-17.8.pre.
 OBS²: Como a API está toda documentada em inglês, preferi desenvolver todas as telas em inglês também.
@@ -16,7 +16,8 @@ A aplicação consiste em uma listagem das HQs disponíveis na API da Marvel, a 
 Uma tela de login (não possui autenticação, qualquer usuário consegue acessar)
 ![](/screenshots/login.png)
 
-A tela principal do aplicativo, mostrando todas as HQs disponíveis
+A tela principal do aplicativo, mostrando todas as HQs disponíveis. Caso scrolle para baixo, passará para a
+próxima página. Também possui um filtro de pesquisa que traz a HQ pesquisada.
 ![](/screenshots/lista_quadrinhos.png)
 
 Os detalhes do quadrinho selecionado, com o botão para adicioná-lo ao seu carrinho de compras
