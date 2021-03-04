@@ -7,6 +7,7 @@ Teste feito utilizando a [API de desenvolvedores da Marvel](https://developer.ma
 Utilizei o [Pacote GetX](https://pub.dev/packages/get) como gerenciador de estado e rotas da aplicação, e para fazer as requisições HTTP, utilizei o [Pacote Dio](https://pub.dev/packages/dio). 
 
 OBS: A versão utilizada para desenvolver o projeto foi a BETA 1.26.0-17.8.pre.
+
 OBS²: Como a API está toda documentada em inglês, preferi desenvolver todas as telas em inglês também.
 
 ## Demonstração do projeto
