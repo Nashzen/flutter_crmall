@@ -13,7 +13,7 @@ class CheckoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final snackBar = SnackBar(
       backgroundColor: Colors.lightGreen[600],
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 2),
       content: Text(
         'Payment made successfully!',
         style: TextStyle(color: Colors.white, fontSize: 18),

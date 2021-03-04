@@ -1,16 +1,33 @@
 # teste_flutter_crmall
 
-A new Flutter project.
+Teste feito utilizando a [API de desenvolvedores da Marvel](https://developer.marvel.com)
 
-## Getting Started
+## Considerações
 
-This project is a starting point for a Flutter application.
+Utilizei o [Pacote GetX](https://pub.dev/packages/get) como gerenciador de estado e rotas da aplicação, e para fazer as requisições HTTP, utilizei o [Pacote Http.dart](https://pub.dev/packages/http). 
 
-A few resources to get you started if this is your first Flutter project:
+OBS: A versão utilizada para desenvolver o projeto foi a BETA 1.26.0-17.8.pre.
+OBS²: Como a API está toda documentada em inglês, preferi desenvolver todas as telas em inglês também.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Demonstração do projeto
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A aplicação consiste em uma listagem das HQs disponíveis na API da Marvel, a aplicação consiste em:
+
+Uma tela de login (não possui autenticação, qualquer usuário consegue acessar)
+![](/screnshots/login.png)
+
+A tela principal do aplicativo, mostrando todas as HQs disponíveis
+![](/screnshots/lista_quadrinhos.png)
+
+Os detalhes do quadrinho selecionado, com o botão para adicioná-lo ao seu carrinho de compras
+![](/screnshots/detalhes_quadrinho.png)
+
+O carrinho de compras, com a lista de todos os pedidos adicionados
+![](/screnshots/carrinho_compras.png)
+
+E o checkout, pedindo as informações do seu cartão de crédito para conclusão da compra (não há nenhuma validação)
+![](/screnshots/acheckout.png)
+
+
+
+

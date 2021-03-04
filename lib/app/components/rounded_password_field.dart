@@ -4,9 +4,11 @@ import 'package:teste_flutter_crmall/app/constants/const_colors.dart';
 
 class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
-  const RoundedPasswordField({
+  bool visiblePassword = false;
+  RoundedPasswordField({
     Key key,
     this.onChanged,
+    this.visiblePassword,
   }) : super(key: key);
 
   @override
@@ -22,9 +24,12 @@ class RoundedPasswordField extends StatelessWidget {
             Icons.lock,
             color: marvelRed,
           ),
-          suffixIcon: Icon(
-            Icons.visibility,
+          suffixIcon: IconButton(
+            icon: Icon(Icons.visibility),
             color: marvelRed,
+            onPressed: () {
+              visiblePassword = !visiblePassword;
+            },
           ),
           border: InputBorder.none,
         ),
