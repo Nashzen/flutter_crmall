@@ -53,14 +53,16 @@ class ComicsPage extends StatelessWidget {
                         child: TextField(
                           decoration: InputDecoration.collapsed(
                               hintText: "Search for a comic"),
-                          onSubmitted: (text) {},
-                          // controller: _editTextController,
+                          onSubmitted: (String text) {
+                            controller.searchTextController.value.text = text;
+                          },
+                          controller: controller.searchTextController.value,
                         ),
                       ),
                       IconButton(
                         icon: Icon(Icons.search),
                         onPressed: () {
-                          // _prepareSearch();
+                          controller.searchComics();
                         },
                       ),
                     ],
@@ -117,7 +119,7 @@ class ComicsPage extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'Something went wrong, restart your app our contact our developer',
+                              'Nothing here :(',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),

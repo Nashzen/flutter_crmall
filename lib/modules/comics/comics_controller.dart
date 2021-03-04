@@ -18,6 +18,9 @@ class ComicsController extends GetxController {
   final myPurchases = <CartComicModel>[]
       .obs; // lista para adicionar as compras para listar depois
 
+  final searchTextController =
+      TextEditingController().obs; // texto para o filtro de pesquisa
+
   @override
   void onInit() {
     super.onInit();
@@ -28,7 +31,8 @@ class ComicsController extends GetxController {
   Future getComics(String offset) async {
     try {
       isLoading(true);
-      var comicResponse = await repository.getComics(offset: offset);
+      var comicResponse =
+          await repository.getComics(offset: offset, title: null);
       if (comicResponse != null) {
         comics.value = comicResponse;
         comicList.add(comicResponse);
@@ -41,10 +45,24 @@ class ComicsController extends GetxController {
   Future getMoreComics() async {
     try {
       isLoading(true);
-      var comicResponse =
-          await repository.getComics(offset: '${pageOffset.value + 20}');
+      var comicResponse = await repository.getComics(
+          offset: '${pageOffset.value + 20}', title: null);
       if (comicResponse != null) {
         pageOffset.value += 20;
+        comics.value = comicResponse;
+        comicList.add(comicResponse);
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
+
+  Future searchComics() async {
+    try {
+      isLoading(true);
+      var comicResponse =
+          await repository.getComics(title: searchTextController.value.text);
+      if (comicResponse != null) {
         comics.value = comicResponse;
         comicList.add(comicResponse);
       }
