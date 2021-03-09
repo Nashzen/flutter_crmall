@@ -80,7 +80,7 @@ class Results {
   int id;
   int digitalId;
   String title;
-  int issueNumber;
+  dynamic issueNumber;
   String variantDescription;
   String description;
   String modified;
